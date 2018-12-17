@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>springboot</artifactId>
+        <groupId>com.startdt.newretail</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springboot-service</artifactId>
+
+    <name>springboot-service</name>
+
+    <dependencies>
+        <!--依赖于提供dubbo服务的api-->
+        <dependency>
+            <groupId>com.startdt.newretail</groupId>
+            <artifactId>springboot-api</artifactId>
+            <version>${springboot-api.version}</version>
+        </dependency>
+        <!--依赖于repository-->
+        <dependency>
+            <groupId>com.startdt.newretail</groupId>
+            <artifactId>springboot-repository</artifactId>
+            <version>${springboot-repository.version}</version>
+        </dependency>
+
+        <!--添加业务引用依赖:start-->
+
+        <!--添加业务引用依赖:end-->
+    </dependencies>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- Allows the example to be run via 'mvn compile exec:java' -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>com.startdt.newretail.MainApp</mainClass>
+                    <includePluginDependencies>false</includePluginDependencies>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
